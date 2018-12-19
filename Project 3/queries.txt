@@ -1,0 +1,54 @@
+/* Query 1: Total sales of the songs with the 20 worst profits. */
+SELECT T.TrackID, T.Name, SUM(IL.UnitPrice * IL.Quantity) Track_Sales, G.Name
+FROM Genre G
+JOIN Track T
+ON G.GenreID = T.GenreID
+JOIN InvoiceLine IL
+ON T.TrackID = IL.TrackID
+GROUP BY T.Name
+ORDER BY Track_Sales DESC
+LIMIT 20;
+
+/* Query 2: Top Ten of artists who have written jazz songs. */
+SELECT  Artist.Name, COUNT(Track.TrackId) AS Songs
+FROM Artist
+JOIN Album
+ON Artist.ArtistId = Album.ArtistId
+JOIN Track
+ON Album.AlbumId = Track.AlbumId
+JOIN Genre
+ON Track.GenreId = Genre.GenreId
+WHERE Genre.name = 'Jazz'
+GROUP BY Artist.name
+ORDER BY Songs DESC
+LIMIT 10;
+
+/* Query 3: Top Five of customers who buy tracks from Queen and AC/DC and how much they spend. */
+SELECT Customer.LastName AS CustomerName, SUM(Invoice.Total) AS TotalMoneySpent
+FROM Customer
+JOIN Invoice
+ON Invoice.CustomerId = Customer.CustomerId
+JOIN InvoiceLine
+ON Invoice.InvoiceId = InvoiceLine.InvoiceId
+JOIN Track 
+ON InvoiceLine.TrackId = Track.TrackId
+JOIN Album
+ON Track.AlbumId = Album.AlbumId
+JOIN Artist 
+ON Album.ArtistId = Artist.ArtistId
+where Artist.Name = 'Queen' or 'AC/DC'
+GROUP BY Customer.LastName
+LIMIT 5;
+
+/* Query 4: Top 10 of artists who have earned the most money. */
+SELECT Artist.name, SUM(InvoiceLine.UnitPrice * InvoiceLine.Quantity) AS AmountEarned
+FROM Artist
+JOIN Album
+ON Artist.ArtistId = Album.ArtistId
+JOIN Track
+ON Album.AlbumId = Track.AlbumId
+JOIN InvoiceLine
+ON Track.TrackId = InvoiceLine.TrackId
+GROUP BY Artist.Name
+ORDER BY AmountEarned DESC
+LIMIT 10;
