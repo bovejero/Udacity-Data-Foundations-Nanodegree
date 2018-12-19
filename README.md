@@ -19,6 +19,7 @@ In this project, you will analyze a real dataset about current Udacity students 
 [Data used](https://github.com/boa2017/Udacity-Data-Foundations-Nanodegree/blob/master/Project%202/Data%20Project%202.xlsx)
 
 ## Project 3: Query a Digital Music Store Database
+
 In this project, you will query the Chinook Database. The Chinook Database holds information about a music store. For this project, you will be assisting the Chinook team with understanding the media in their store, their customers and employees, and their invoice information. 
 
 [Link to report](https://github.com/boa2017/Udacity-Data-Foundations-Nanodegree/blob/master/Project%203/Project%203%20Report.pdf)
@@ -28,6 +29,10 @@ In this project, you will query the Chinook Database. The Chinook Database holds
 [Queries used](https://github.com/boa2017/Udacity-Data-Foundations-Nanodegree/blob/master/Project%203/queries.txt)
 
 ## Project 4: Data Visualization Using Tableau
+
+In this project, you'll create visualizations to reveal insights from a data set. You will create data visualizations that tell a story or highlight patterns in the data set. Your work should be a reflection of the theory and practice of data visualization, such as visual encodings, design principles, and effective communication.
+
+
 
 Link to report
 
